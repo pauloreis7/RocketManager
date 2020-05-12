@@ -1,0 +1,32 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+
+<title>Not found page</title>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="err">
+
+    <p class="sorry"> <strong>Sorry</strong>, but we didn´t find this page :(</p>
+    <p class="try">Try another and we find it to you</p>
+
+</div>
+
+<div id="err404">
+
+    <img src="/assets/find.png" alt="Finding">
+
+    <div id="err_content">
+
+        <h1>What is 404 ?</h1>
+
+        <p> <strong>Error 404 is an HTTP response code that indicates that the client was able to communicate with the server, but the server was unable to find what was requested</strong> </p>
+
+    </div>
+
+</div>
+
+{% endblock %}
