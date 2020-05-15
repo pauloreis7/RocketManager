@@ -17,12 +17,11 @@ body {
 }
 
 header {
-    background-color: rgb(15, 15, 25);
-    border-bottom: 9px solid rgb(15, 15, 33);
+    background-color: rgb(25, 25, 33);
 
     width: 100%;
 
-    padding: 32px;
+    padding: 29px 26px;
     text-align: center;
     box-sizing: border-box;
 }
@@ -30,7 +29,7 @@ header {
 header img {
     position: absolute;
     left: 15px;
-    top: 29px;
+    top: 22px;
 
     margin-right: 10px;
     max-width: 170px;
@@ -79,6 +78,20 @@ header img {
     width: 100%;
 
     transition: width 295ms ease-in-out;
+}
+
+.card {
+    max-width: 850px;
+    min-height: 480px;
+
+    margin: 45px auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background-color: white;
+    box-shadow: .5px 2px 7px -2px rgba(0, 0, 0, 0.7);
+
 }
 
 #footer-links {
