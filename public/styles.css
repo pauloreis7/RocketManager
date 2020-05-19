@@ -28,6 +28,7 @@ header {
     padding: 29px 26px;
     text-align: center;
     box-sizing: border-box;
+    z-index: 6;
 
     position: fixed;
     top: 0;
@@ -184,20 +185,85 @@ header img {
 
 .details .item span {
     padding: 6px 16px;
-    margin: 12px 4px 0 0;
+    margin: 20px 4px 0 0;
+    margin-top: 30px;
 
     background-color: var(--secondary-color);
     color: white;
     border-radius: 16px;
     cursor: default;
 }
-.details .item:nth-child(7) div:nth-child(2):hover,
-.details .item span:hover {
-    filter: brightness(90%);
 
-    transition: 300ms;
+/* CREATE/ FORM */
+
+input,select {
+    width: 80%;
+    height: 30px;
+    padding: 2px 0 2px 5px;
+    box-sizing: border-box;
+    position: relative;
+
+    color: rgb(114, 114, 114);
+    font-weight: bold;
+    font-size: 18px;
+    outline: none;
+    border-radius: 6px 6px 0 0;
 }
 
+input::placeholder,select::placeholder {
+    font-size: 17px;
+}
+
+input[type="radio"] {
+    width: initial;
+    height: initial;
+    margin: 15px 5px 0 0 ;
+}
+
+input:hover,select:hover {
+    filter: brightness(97%);
+    border-bottom: 2px solid var(--main-color);
+
+    transition: 190ms;
+}
+
+.details .item:nth-child(7) div:nth-child(2) input {
+    background-color: var(--third-color);
+    color: white;
+    border-radius: 7px;
+    width: 98%;
+}
+
+.details .item:nth-child(7) div:nth-child(2) input::placeholder {
+    color: white;
+}
+
+.details .item:nth-child(7) div:nth-child(2) input:hover {
+    border: none;
+}
+
+.details .item:nth-child(7) div:nth-child(2) input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #fc3131 inset;
+    border: 5px solid var(--third-color);
+ }
+
+button[type="submit"] {
+    padding: 8px 32px;
+    margin-top: 32px;
+
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    filter: brightness(90%);
+
+    transition: 250ms;
+}
 
 /* FOOTER */
 
