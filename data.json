@@ -1,3 +1,74 @@
 {
-  "teachers": []
+  "teachers": [
+    {
+      "id": 1,
+      "avatar_url": "https://source.unsplash.com/collection/8359212/425x500",
+      "name": "Paulo Reis",
+      "birth": 976579200000,
+      "type": "distance",
+      "level": "doctor",
+      "services": "programming, hardware",
+      "since": 1590141689257
+    },
+    {
+      "id": 2,
+      "avatar_url": "http://gvbh",
+      "name": "Maria Clara ",
+      "birth": 329011200000,
+      "type": "presential",
+      "level": "master",
+      "services": "Web design ",
+      "since": 1590141744810
+    },
+    {
+      "id": 3,
+      "avatar_url": "http://google.com",
+      "name": "Ana Beatriz",
+      "birth": -300844800000,
+      "type": "presential",
+      "level": "doctor",
+      "services": "Digital marketing ",
+      "since": 1590141831120
+    },
+    {
+      "id": 4,
+      "avatar_url": "http://gvbh",
+      "name": "Manuel Souza",
+      "birth": 993859200000,
+      "type": "presential",
+      "level": "highSchool",
+      "services": "Data science",
+      "since": 1590158316489
+    },
+    {
+      "id": 5,
+      "avatar_url": "http://google.com",
+      "name": "Claudio Pinto",
+      "birth": 637891200000,
+      "type": "presential",
+      "level": "doctor",
+      "services": "Games development ",
+      "since": 1590161117322
+    },
+    {
+      "id": 6,
+      "avatar_url": "http://google.com",
+      "name": "Clóvis Pinto",
+      "birth": 320716800000,
+      "type": "presential",
+      "level": "university",
+      "services": "Deploy",
+      "since": 1590164666931
+    },
+    {
+      "id": 7,
+      "avatar_url": "http://google.com",
+      "name": "Rogerio Nunes",
+      "birth": 315532800000,
+      "type": "distance",
+      "level": "doctor",
+      "services": "Math,Web development",
+      "since": 1590165835135
+    }
+  ]
 }

@@ -174,7 +174,7 @@ header img {
     font-weight: bold;
     border-radius: 16px;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 18px;
     cursor: default;
 
     padding: 0 16px;
@@ -247,7 +247,7 @@ input:hover,select:hover {
     border: 5px solid var(--third-color);
  }
 
-button[type="submit"] {
+button[type="submit"], a.button {
     padding: 8px 32px;
     margin-top: 32px;
 
@@ -259,11 +259,93 @@ button[type="submit"] {
     width: 100%;
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover, a.button:hover {
     filter: brightness(90%);
 
     transition: 250ms;
 }
+
+a.button {
+    text-decoration: none;
+    font-weight: bold;
+
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
+}
+
+/* NOT FOUND */
+
+.err {
+    
+    max-width: 550px;
+    max-height: 400px;
+
+    margin: 18vh auto 23px;
+    padding-top: 10px;
+
+    text-align: center;
+}
+
+.sorry {
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.try {
+    font-size: 25px;
+    color: var(--secondary-color);
+}
+
+#err404 {
+
+    max-width: 700px;
+    max-height: 750px;
+
+    margin: 10px auto 0;
+    text-align: center;
+
+    border-radius: 15px;
+    border: 3px solid white;
+
+    display: flex;
+}
+
+#err_content {
+    padding: 20px;
+}
+
+#err_content h1 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    color: rgb(4, 206, 95);
+}
+
+#err_content p {
+    font-size: 17px;
+    opacity: .95;
+}
+
+#err404 img {
+    max-width: 370px;
+    max-height: 210px;
+
+    border-radius: 11px 0 0 11px;
+    filter: brightness(80%);
+    border-right: 3px solid white;
+}
+
+#err404 p {
+    max-width: 330px;
+    max-height: 250px;
+
+    margin: auto 0;
+}
+
+.err strong {
+    color: rgb(4, 206, 95);
+}
+
 
 /* FOOTER */
 
