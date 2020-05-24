@@ -39,36 +39,6 @@
       "level": "highSchool",
       "services": "Data science",
       "since": 1590158316489
-    },
-    {
-      "id": 5,
-      "avatar_url": "http://google.com",
-      "name": "Claudio Pinto",
-      "birth": 637891200000,
-      "type": "presential",
-      "level": "doctor",
-      "services": "Games development ",
-      "since": 1590161117322
-    },
-    {
-      "id": 6,
-      "avatar_url": "http://google.com",
-      "name": "Clóvis Pinto",
-      "birth": 320716800000,
-      "type": "presential",
-      "level": "university",
-      "services": "Deploy",
-      "since": 1590164666931
-    },
-    {
-      "id": 7,
-      "avatar_url": "http://google.com",
-      "name": "Rogerio Nunes",
-      "birth": 315532800000,
-      "type": "distance",
-      "level": "doctor",
-      "services": "Math,Web development",
-      "since": 1590165835135
     }
   ]
 }

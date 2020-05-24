@@ -9,13 +9,32 @@
         </article>
 
         <article class="details">
+        
+            <form action="/teachers?_method=PUT" method="POST">
 
-            <h3>Teacher</h3>
+                <h3>Teacher</h3>
 
-            {% include 'teachers/fields.njk' %}
+                {% include 'teachers/fields.njk' %}
 
-        </article>
+                <div class="buttons">
+
+                <button type="submit">Salvar</button>
+
+                <input type="hidden" name="id" value={{ teacher.id }} />
+
+            </form>        
+
+            <form action="/teachers?_method=DELETE" method="POST">
+
+                <button id="teacher_delete" type="submit">Deletar</button>
+                
+                <input type="hidden" name="id" value={{ teacher.id }} />
             
+            </form>   
+
+                </div>
+        </article>
+
     </section>
 
-{% endblock %}
+{% endblock %} 
