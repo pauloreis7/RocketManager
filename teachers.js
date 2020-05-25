@@ -10,10 +10,7 @@ exports.index = function (req, res) {
 
         teacher.services = String(teacher.services)
 
-        if (teacher.services !== [""]) {
-            
-            teacher.services = teacher.services.split(",")
-        }
+        teacher.services = teacher.services.split(",")
     }
     
     return res.render("teachers/index", { teachers: data.teachers }  )
