@@ -3,6 +3,22 @@ const data = require('./data.json')
 const { graduation, age, date } = require("./utils")
 const Intl = require('intl')
 
+//index
+exports.index = function (req, res) {
+    
+    for (let teacher of data.teachers) {
+
+        teacher.services = String(teacher.services)
+
+        if (teacher.services !== [""]) {
+            
+            teacher.services = teacher.services.split(",")
+        }
+    }
+    
+    return res.render("teachers/index", { teachers: data.teachers }  )
+}
+
 //create
 exports.post = function (req, res) {
     const keys = Object.keys(req.body)
@@ -42,6 +58,7 @@ exports.show = function (req, res) {
     const { id } = req.params
 
     const findTeach = data.teachers.find(function (teacher) {
+        teacher.services = String(teacher.services)
        return teacher.id == id
     })
 

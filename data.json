@@ -2,43 +2,23 @@
   "teachers": [
     {
       "id": 1,
-      "avatar_url": "https://source.unsplash.com/collection/8359212/425x500",
-      "name": "Paulo Reis",
-      "birth": 976579200000,
-      "type": "distance",
-      "level": "doctor",
-      "services": "programming, hardware",
-      "since": 1590141689257
+      "avatar_url": "https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
+      "name": "Caroline Dias Pereira",
+      "birth": 639878400000,
+      "type": "presential",
+      "level": "master",
+      "services": "Marketing,Hardware,Phyton",
+      "since": 1590334473312
     },
     {
       "id": 2,
-      "avatar_url": "http://gvbh",
-      "name": "Maria Clara ",
-      "birth": 329011200000,
-      "type": "presential",
-      "level": "master",
-      "services": "Web design ",
-      "since": 1590141744810
-    },
-    {
-      "id": 3,
-      "avatar_url": "http://google.com",
-      "name": "Ana Beatriz",
-      "birth": -300844800000,
-      "type": "presential",
+      "avatar_url": "https://images.unsplash.com/photo-1564130987042-acbca1b51e8d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=366&q=80",
+      "name": "Rafael Andrade Souza",
+      "birth": 6048000000,
+      "type": "distance",
       "level": "doctor",
-      "services": "Digital marketing ",
-      "since": 1590141831120
-    },
-    {
-      "id": 4,
-      "avatar_url": "http://gvbh",
-      "name": "Manuel Souza",
-      "birth": 993859200000,
-      "type": "presential",
-      "level": "highSchool",
-      "services": "Data science",
-      "since": 1590158316489
+      "services": "Programming,Data Science,UX",
+      "since": 1590334849787
     }
   ]
 }
