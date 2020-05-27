@@ -16,7 +16,7 @@ body {
     background-color: #7d51c4; 
     font-family: 'Roboto', sans-serif;
 
-    padding-top: 65px;
+    padding: 65px 0 0 20px;
 }
 
 header {
@@ -234,8 +234,8 @@ input:hover,select:hover {
     width: 98%;
 }
 
-.details .item:nth-child(7) div:nth-child(2) input[type="number"] {
-    width: 20%;
+.hour {
+    width: 11%;
 }
 
 .details .item:nth-child(7) div:nth-child(2) input::placeholder {
@@ -287,7 +287,7 @@ a.button {
     gap: 20px;
 }
 
-#teacher_delete {
+#teacher_delete, #student_delete {
     background-color: #ff4646;
 }
 
@@ -296,6 +296,7 @@ a.button {
 .info_table {
     text-align: center;
     max-width: 1050px;
+    text-transform: uppercase;
 }
 
 .table_header {
@@ -333,6 +334,13 @@ tbody tr td:first-child {
 
     text-align: left;
     align-items: center;
+    word-wrap: break-word;
+    max-width: 270px;
+
+    font-weight: bold;
+    color: black;
+
+    padding-bottom: 5px;
 }
 
 tbody tr td:first-child span {
@@ -346,16 +354,15 @@ tbody tr td:first-child span {
     box-shadow: 3px 1px 6px -4px;
 }
 
-tr td:first-child {
-    font-weight: bold;
-    color: rgba(78, 78, 78, 0.8);
+tbody tr td:nth-child(2), .only {
+    text-align: initial;
+    width: 150px;
+    text-transform: none;
 
-    padding-bottom: 5px;
 }
 
-tbody tr td:nth-child(2) {
-    text-align: initial;
-    max-width: 100%;
+.only {
+    word-wrap: break-word;
 }
 
 tbody tr td:nth-child(2) span {
@@ -371,6 +378,7 @@ tr th:last-child {
 td, th {
     padding: 8px 16px 4px;
     border-bottom: 1px solid var(--secondary-color);
+    color: rgba(78, 78, 78, 0.8);
     min-height: 77px;
 }
 

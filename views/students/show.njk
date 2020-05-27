@@ -4,27 +4,35 @@
 
     <section class="card">
     
-        <article class="card_image" style=" max-width:100%; height:100%;background: url({{ teacher.avatar_url }}) no-repeat center center / cover">
+        <article class="card_image" style=" max-width:100%; height:100%;background: url({{ student.avatar_url }}) no-repeat center center / cover">
         
         </article>
 
         <article class="details">
 
-            <h3>Teacher</h3>
+            <h3>Student</h3>
 
             <div class="item">
             
-                <div>Teacher</div>
+                <div>Student</div>
 
-                <div>{{ teacher.name }}</div>
+                <div>{{ student.name }}</div>
             
             </div>
 
             <div class="item">
             
-                <div>Ages</div>
+                <div>E-mail</div>
 
-                <div>{{ teacher.birth }}</div>
+                <div>{{ student.email }}</div>
+            
+            </div>
+
+            <div class="item">
+            
+                <div>BirthDay</div>
+
+                <div>{{ student.birth }}</div>
             
             </div>
 
@@ -32,45 +40,28 @@
             
                 <div>Educational level</div>
 
-                <div>{{ teacher.level }}</div>
+                <div>{{ student.level }}</div>
             
             </div>
 
             <div class="item">
             
-                <div>Class type</div>
+                <div id="since">Workload</div>
 
-                <div>{{ teacher.type }}</div>
+                <div>{{ student.workload }}H</div>
             
             </div>
 
-            <div class="item">
-            
-                <div>Monitoring</div>
-
-                <div>
-
-                    {% for service in teacher.services %}
-                    
-                    <span>{{ service }}</span>
-
-                    {% endfor %}
-
-                    
-                
-                </div>
-            
-            </div>
         
             <div class="item">
             
                 <div id="since">Since</div>
 
-                <div>{{ teacher.since }}</div>
+                <div>{{ student.since }}</div>
             
             </div>
 
-            <a href="/teachers/{{ teacher.id }}/edit" class="button">Editar</a>
+            <a href="/students/{{ student.id }}/edit" class="button">Editar</a>
 
         </article>    
         

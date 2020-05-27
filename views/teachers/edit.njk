@@ -24,7 +24,7 @@
 
             </form>        
 
-            <form action="/teachers?_method=DELETE" method="POST">
+            <form id="form-delete" action="/teachers?_method=DELETE" method="POST">
 
                 <button id="teacher_delete" type="submit">Deletar</button>
                 
@@ -36,5 +36,7 @@
         </article>
 
     </section>
+
+    {% include "../confirm.njk" %}
 
 {% endblock %} 

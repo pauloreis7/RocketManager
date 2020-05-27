@@ -1,18 +1,10 @@
 const fs = require('fs')
 const data = require('../data.json')
-const { graduation, age, date } = require("../utils")
+const { date, grade, graduation } = require("../utils")
 const Intl = require('intl')
 
 //index
 exports.index = function (req, res) {
-    
-    for (let student of data.students) {
-
-        student.services = String(student.services)
-
-        student.services = student.services.split(",")
-    }
-    
     return res.render("students/index", { students: data.students }  )
 }
 
@@ -31,16 +23,21 @@ exports.post = function (req, res) {
         }
     }
 
-    let {avatar_url, name, birth, type, level, services} = req.body
+    birth = Date.parse(req.body.birth)
+    
+    let id = 1
 
-    birth = Date.parse(birth)
-    const id = Number(data.students.length + 1)
+    const lastStud = data.students[data.students.length -1]
+
+    if (lastStud) {
+        id = lastStud.id +1 
+    }
 
     data.students.push({
-        id,
-        avatar_url,
-        name,
-        birth,
+        id: Number(id),
+        ...req.body,
+        level: grade(req.body.level),
+        birth
     })
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
@@ -55,7 +52,6 @@ exports.show = function (req, res) {
     const { id } = req.params
 
     const findStud = data.students.find(function (student) {
-        student.services = String(student.services)
        return student.id == id
     })
 
@@ -63,9 +59,7 @@ exports.show = function (req, res) {
 
     const student = {
         ...findStud,
-        level: graduation(findStud.level),
-        birth: age(findStud.birth),
-        services: findStud.services.split(","),
+        birth: date(findStud.birth).birthDate,
         since: Intl.DateTimeFormat("pt-BR").format(findStud.since)
     }
 
@@ -84,7 +78,7 @@ exports.edit = function (req, res) {
 
     const student = {
         ...findStud,
-        birth: date(findStud.birth)
+        birth: date(findStud.birth).iso
     }
 
 
@@ -109,6 +103,7 @@ exports.uptade = function (req, res) {
         ...findStud,
         ...req.body,
         birth: Date.parse(req.body.birth),
+        level: grade(req.body.level),
         id: Number(req.body.id)
     }
 

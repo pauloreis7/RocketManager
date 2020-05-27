@@ -8,7 +8,11 @@
       "birth": 639878400000,
       "type": "presential",
       "level": "master",
-      "services": "Marketing,Hardware,Phyton",
+      "services": [
+        "Marketing",
+        "Hardware",
+        "Phyton"
+      ],
       "since": 1590334473312
     },
     {
@@ -18,8 +22,12 @@
       "birth": 6048000000,
       "type": "distance",
       "level": "doctor",
-      "services": "Programming,Data Science,UX",
+      "services": [
+        "Programming",
+        "Data Science",
+        "UX"
+      ],
       "since": 1590334849787
-    }  
+    }
   ]
 }

@@ -13,7 +13,7 @@
             <div class="table_header">
                 
                 <a href="/students/create">Novo</a>
-                <h3>Teachers</h3>
+                <h3>Students</h3>
 
             </div>
 
@@ -23,8 +23,9 @@
 
                     <tr>
                 
-                     <th>Teacher</th>
-                     <th>Services</th>
+                     <th>Student</th>
+                     <th>Email</th>
+                     <th>school year</th>
                      <th>See more</th>
 
                     </tr>
@@ -33,19 +34,14 @@
 
                 <tbody>
 
-                    {% for teacher in teachers %}
+                    {% for student in students %}
                 
                         <tr>
                         
-                            <td><span style="background-image: url({{ teacher.avatar_url }})"></span>{{ teacher.name }}</td>
-
-                            <td>
-                            {% for service in teacher.services %}
-                               <span>{{ service }}</span> 
-                            {% endfor %}
-                            </td>
-                            
-                            <td><a href="/teachers/{{ teacher.id }}">View</a></td>
+                            <td><span style="background-image: url({{ student.avatar_url }})"></span>{{ student.name }}</td>
+                            <td>{{ student.email }}</td>
+                            <td class="only">{{ student.level }}</td>
+                            <td><a href="/students/{{ student.id }}">View</a></td>
                         
                         </tr>
                     

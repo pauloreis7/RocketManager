@@ -31,6 +31,25 @@ module.exports = {
         const month = `0${date.getUTCMonth() + 1}`.slice(-2)
         const day = `0${date.getUTCDate()}`.slice(-2)
 
-        return `${year}-${month}-${day}`
+        return {
+            iso: `${year}-${month}-${day}`,
+            birthDate: `${day}/${month}`
+        }
+    },
+
+    grade: function (level) {
+
+        teachs = {
+            El5: "5° Elementary School",
+            El6: "6° Elementary School",
+            El7: "7° Elementary School",
+            El8: "8° Elementary School",
+            El9: "9° Elementary School",
+            Hs1: "1° High School",
+            Hs2: "2° High School",
+            Hs3: "3° High School",
+        }
+        
+        return String(teachs[level])
     }
 }

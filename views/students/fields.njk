@@ -4,7 +4,7 @@
 
         <div>
         
-            <input type="url" name="avatar_url" placeholder="http://" value="{{ teacher.avatar_url }}" />
+            <input type="url" name="avatar_url" placeholder="http://" value="{{ student.avatar_url }}" />
         
         </div>
     
@@ -16,7 +16,7 @@
 
         <div>
         
-            <input type="text" name="name" placeholder="complete name" value="{{ teacher.name }}" />
+            <input type="text" name="name" placeholder="complete name" value="{{ student.name }}" />
         
         </div>
     
@@ -28,7 +28,7 @@
 
         <div>
         
-            <input type="email" name="email" placeholder="your best email" value="{{ teacher.name }}" />
+            <input type="email" name="email" placeholder="your best email" value="{{ student.email }}" />
         
         </div>
     
@@ -36,11 +36,11 @@
 
     <div class="item">
     
-        <div>Ages</div>
+        <div>BirthDate</div>
 
         <div>
         
-            <input type="date" name="birth"  value="{{ teacher.birth }}" />
+            <input type="date" name="birth"  value="{{ student.birth }}" />
         
         </div>
     
@@ -53,28 +53,28 @@
         <div>
         
             <select name="level">
-                <option value="El5" {% if student.level == "El5" %} selected {% endif %}>
+                <option value="El5" {% if student.level == "5° Elementary School" %} selected {% endif %}>
                 5° elementary school
                 </option>
-                <option value="El6" {% if student.level == "El6" %} selected {% endif %}>
+                <option value="El6" {% if student.level == "6° Elementary School" %} selected {% endif %}>
                 6° elementary school
                 </option>
-                <option value="El7" {% if student.level == "El7" %} selected {% endif %}>
+                <option value="El7" {% if student.level == "7° Elementary School" %} selected {% endif %}>
                 7° elementary school
                 </option>
-                <option value="El8" {% if student.level == "El8" %} selected {% endif %}>
+                <option value="El8" {% if student.level == "8° Elementary School" %} selected {% endif %}>
                 8° elementary school
                 </option>
-                <option value="El9" {% if student.level == "El9" %} selected {% endif %}>
+                <option value="El9" {% if student.level == "9° Elementary School" %} selected {% endif %}>
                 9° elementary school
                 </option>
-                <option value="Hs1" {% if student.level == "Hs1" %} selected {% endif %}>
+                <option value="Hs1" {% if student.level == "1° High School" %} selected {% endif %}>
                 1° high school
                 </option>
-                <option value="Hs2" {% if student.level == "Hs2" %} selected {% endif %}>
+                <option value="Hs2" {% if student.level == "2° High School" %} selected {% endif %}>
                 2° high school
                 </option>
-                <option value="Hs3" {% if student.level == "Hs3" %} selected {% endif %}>
+                <option value="Hs3" {% if student.level == "3° High School" %} selected {% endif %}>
                 3° high school
                 </option>
             
@@ -90,7 +90,7 @@
 
         <div class="hour">
         
-            <input type="number" name="workload" placeholder="Hs" value="{{ teacher.name }}" />
+            <input type="number" name="workload" placeholder="Hs" min="0" value="{{ student.workload }}" />
         
         </div>
     
