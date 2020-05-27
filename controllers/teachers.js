@@ -1,6 +1,6 @@
 const fs = require('fs')
-const data = require('./data.json')
-const { graduation, age, date } = require("./utils")
+const data = require('../data.json')
+const { graduation, age, date } = require("../utils")
 const Intl = require('intl')
 
 //index
@@ -17,6 +17,11 @@ exports.index = function (req, res) {
 }
 
 //create
+exports.create = function (req, res) {
+    return res.render("teachers/create")
+}
+
+//post
 exports.post = function (req, res) {
     const keys = Object.keys(req.body)
 

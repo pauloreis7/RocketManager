@@ -234,6 +234,10 @@ input:hover,select:hover {
     width: 98%;
 }
 
+.details .item:nth-child(7) div:nth-child(2) input[type="number"] {
+    width: 20%;
+}
+
 .details .item:nth-child(7) div:nth-child(2) input::placeholder {
     color: white;
 }
@@ -294,11 +298,23 @@ a.button {
     max-width: 1050px;
 }
 
-.table_content h3 {
+.table_header {
+    margin-bottom: 24px;
+    align-items: center;
+    position: relative;
+}
+
+.table_header a {
+    position: absolute;
+    left: 0;
+    top: 1px;
+}
+
+.table_header h3 {
     font-size: 16px;
     border-bottom: 2px solid var(--main-color);
+    text-align: center;
 
-    margin-bottom: 24px;
     display: inline-block;
 }
 
@@ -333,6 +349,8 @@ tbody tr td:first-child span {
 tr td:first-child {
     font-weight: bold;
     color: rgba(78, 78, 78, 0.8);
+
+    padding-bottom: 5px;
 }
 
 tbody tr td:nth-child(2) {
@@ -343,6 +361,7 @@ tbody tr td:nth-child(2) {
 tbody tr td:nth-child(2) span {
     padding: 4px 8px;
     margin-bottom: 16px;
+    line-height: 26px;
 }
 
 tr th:last-child {
@@ -350,16 +369,16 @@ tr th:last-child {
 } 
 
 td, th {
-    padding: 16px;
-    min-height: 100%;
+    padding: 8px 16px 4px;
     border-bottom: 1px solid var(--secondary-color);
+    min-height: 77px;
 }
 
 tbody tr:last-child td {
     border-bottom: none;
 }
 
-tbody tr td:last-child a {
+tbody tr td:last-child a, .table_header a {
     background-color: var(--main-color);
     color: white;
     font-weight: bold;

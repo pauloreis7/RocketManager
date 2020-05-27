@@ -1,0 +1,79 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+    <section class="card">
+    
+        <article class="card_image" style=" max-width:100%; height:100%;background: url({{ teacher.avatar_url }}) no-repeat center center / cover">
+        
+        </article>
+
+        <article class="details">
+
+            <h3>Teacher</h3>
+
+            <div class="item">
+            
+                <div>Teacher</div>
+
+                <div>{{ teacher.name }}</div>
+            
+            </div>
+
+            <div class="item">
+            
+                <div>Ages</div>
+
+                <div>{{ teacher.birth }}</div>
+            
+            </div>
+
+            <div class="item">
+            
+                <div>Educational level</div>
+
+                <div>{{ teacher.level }}</div>
+            
+            </div>
+
+            <div class="item">
+            
+                <div>Class type</div>
+
+                <div>{{ teacher.type }}</div>
+            
+            </div>
+
+            <div class="item">
+            
+                <div>Monitoring</div>
+
+                <div>
+
+                    {% for service in teacher.services %}
+                    
+                    <span>{{ service }}</span>
+
+                    {% endfor %}
+
+                    
+                
+                </div>
+            
+            </div>
+        
+            <div class="item">
+            
+                <div id="since">Since</div>
+
+                <div>{{ teacher.since }}</div>
+            
+            </div>
+
+            <a href="/teachers/{{ teacher.id }}/edit" class="button">Editar</a>
+
+        </article>    
+        
+    </section>
+
+{% endblock %}

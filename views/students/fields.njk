@@ -1,0 +1,97 @@
+    <div class="item">
+    
+        <div>Student Image</div>
+
+        <div>
+        
+            <input type="url" name="avatar_url" placeholder="http://" value="{{ teacher.avatar_url }}" />
+        
+        </div>
+    
+    </div>
+
+    <div class="item">
+    
+        <div>Student Name</div>
+
+        <div>
+        
+            <input type="text" name="name" placeholder="complete name" value="{{ teacher.name }}" />
+        
+        </div>
+    
+    </div>
+
+    <div class="item">
+    
+        <div>Student E-mail</div>
+
+        <div>
+        
+            <input type="email" name="email" placeholder="your best email" value="{{ teacher.name }}" />
+        
+        </div>
+    
+    </div>
+
+    <div class="item">
+    
+        <div>Ages</div>
+
+        <div>
+        
+            <input type="date" name="birth"  value="{{ teacher.birth }}" />
+        
+        </div>
+    
+    </div>
+
+    <div class="item">
+    
+        <div>Student Level</div>
+
+        <div>
+        
+            <select name="level">
+                <option value="El5" {% if student.level == "El5" %} selected {% endif %}>
+                5° elementary school
+                </option>
+                <option value="El6" {% if student.level == "El6" %} selected {% endif %}>
+                6° elementary school
+                </option>
+                <option value="El7" {% if student.level == "El7" %} selected {% endif %}>
+                7° elementary school
+                </option>
+                <option value="El8" {% if student.level == "El8" %} selected {% endif %}>
+                8° elementary school
+                </option>
+                <option value="El9" {% if student.level == "El9" %} selected {% endif %}>
+                9° elementary school
+                </option>
+                <option value="Hs1" {% if student.level == "Hs1" %} selected {% endif %}>
+                1° high school
+                </option>
+                <option value="Hs2" {% if student.level == "Hs2" %} selected {% endif %}>
+                2° high school
+                </option>
+                <option value="Hs3" {% if student.level == "Hs3" %} selected {% endif %}>
+                3° high school
+                </option>
+            
+            </select>
+        
+        </div>
+    
+    </div>
+
+    <div class="item">
+    
+        <div>Workload (weekly)</div>
+
+        <div class="hour">
+        
+            <input type="number" name="workload" placeholder="Hs" value="{{ teacher.name }}" />
+        
+        </div>
+    
+    </div>

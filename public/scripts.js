@@ -1,22 +1,8 @@
-const cards = document.querySelectorAll('.card')
-const cardOnly = document.querySelector('.card_only')
+const localPage = location.pathname
+const menuItens = document.querySelectorAll("header .links a ")
 
-for (let card of cards) {
-    card.addEventListener("click", function () {
-        const courseId = card.getAttribute('id');
-        
-        window.location.href = `http://localhost:5000/rocket_course/${courseId}`
-    })
+for ( item of menuItens) {
+    if (localPage.includes(item.getAttribute("href"))) {
+        item.classList.add("active")
+    }
 }
-
-cardOnly.addEventListener("click", function () {
-    const id = cardOnly.getAttribute('id')
-
-    window.location.href = `https://rocketseat.com.br/${id}`
-})
-
-document.querySelector(".click").addEventListener("click", function () {
-    const id = cardOnly.getAttribute('id')
-
-    window.location.href = `https://rocketseat.com.br/${id}`
-})

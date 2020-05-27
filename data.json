@@ -1,4 +1,5 @@
 {
+  "students": [],
   "teachers": [
     {
       "id": 1,
@@ -19,6 +20,6 @@
       "level": "doctor",
       "services": "Programming,Data Science,UX",
       "since": 1590334849787
-    }
+    }  
   ]
 }
