@@ -24,7 +24,7 @@
             
                 <div>Ages</div>
 
-                <div>{{ teacher.birth }}</div>
+                <div>{{ teacher.birth_date }}</div>
             
             </div>
 
@@ -32,7 +32,7 @@
             
                 <div>Educational level</div>
 
-                <div>{{ teacher.level }}</div>
+                <div>{{ teacher.education_level }}</div>
             
             </div>
 
@@ -40,7 +40,7 @@
             
                 <div>Class type</div>
 
-                <div>{{ teacher.type }}</div>
+                <div>{{ teacher.class_type }}</div>
             
             </div>
 
@@ -50,13 +50,11 @@
 
                 <div>
 
-                    {% for service in teacher.services %}
+                    {% for subject_taught in teacher.subjects_taught %}
                     
-                    <span>{{ service }}</span>
+                    <span>{{ subject_taught }}</span>
 
                     {% endfor %}
-
-                    
                 
                 </div>
             
@@ -66,7 +64,7 @@
             
                 <div id="since">Since</div>
 
-                <div>{{ teacher.since }}</div>
+                <div>{{ teacher.created_at }}</div>
             
             </div>
 

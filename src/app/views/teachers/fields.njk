@@ -28,7 +28,7 @@
 
         <div>
         
-            <input type="date" name="birth"  value="{{ teacher.birth }}" />
+            <input type="date" name="birth_date"  value="{{ teacher.birth_date }}" />
         
         </div>
     
@@ -41,13 +41,13 @@
         <div>
         
             <span>
-                <input type="radio" name="type" id="pres" value="presential" {% if teacher.type =="presential"  %}
+                <input type="radio" name="class_type" id="pres" value="presential" {% if teacher.type =="presential"  %}
                 checked
                 {% endif %} /> <label for="pres"> Presential </label>
             </span>
 
             <span>
-                <input type="radio" name="type" id="dist" value="distance"  {% if teacher.type =="distance" %}
+                <input type="radio" name="class_type" id="dist" value="distance"  {% if teacher.type =="distance" %}
                 checked
                 {% endif %} /> <label for="dist"> To distance </label>
             </span>
@@ -60,7 +60,7 @@
 
         <div>Educational level</div>
     
-        <select name="level">
+        <select name="education_level">
             
             <option value="highSchool" {% if teacher.level == "highSchool" %} selected {% endif %}>High school</option>
             <option value="university"{% if teacher.level == "university" %} selected {% endif %}>University</option>
@@ -77,8 +77,8 @@
 
         <div>
         
-            <input type="text" name="services" placeholder="separe in comma" value="{{ teacher.services }}" />
+            <input type="text" name="subjects_taught" placeholder="separe in comma" value="{{ teacher.services }}" />
         
         </div>     
-    
+
     </div>

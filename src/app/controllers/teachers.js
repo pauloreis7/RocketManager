@@ -1,4 +1,5 @@
 const { graduation, age, date } = require("../../lib/utils")
+const Teacher = require('../models/Teacher')
 const Intl = require('intl')
 
 module.exports = {
@@ -6,8 +7,16 @@ module.exports = {
     //index
     index(req, res) {
 
-        return res.render("teachers/index")
-        
+        Teacher.all( function (teachers) {
+            if (!teachers) return res.send("Não achamos professores!")
+
+            for ( teacher of teachers) {
+                teacher.subjects_taught = teacher.subjects_taught.split(",")   
+            }
+
+            return res.render("teachers/index", { teachers })
+        })
+
     },
 
     //createPage
@@ -25,15 +34,26 @@ module.exports = {
             if (req.body[key] == "") return res.send('Please fill all fields')
         }
 
-        let {avatar_url, name, birth, type, level, services} = req.body
+        Teacher.create(req.body, function (teacher) {
+            return res.redirect(`/teachers/${ teacher.id }`)
+        })
 
-        return   
     },
 
     //showUser
     show(req, res) {
 
-        return 
+        Teacher.find(req.params.id, function (teacher) {
+            if (!teacher) return res.send("Professor não encontrado!")
+
+                teacher.birth_date = age(teacher.birth_date)
+                teacher.education_level = graduation(teacher.education_level)
+                teacher.class_type = teacher.class_type.charAt(0).toUpperCase() + teacher.class_type.slice(1)
+                teacher.subjects_taught = teacher.subjects_taught.split(",")
+                teacher.created_at = date(teacher.created_at).format
+
+            return res.render("teachers/show", { teacher })
+        }) 
         
     },
 
