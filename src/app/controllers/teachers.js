@@ -8,7 +8,7 @@ module.exports = {
     index(req, res) {
 
         Teacher.all( function (teachers) {
-            if (!teachers) return res.send("Não achamos professores!")
+            if (!teachers) return res.send("Teachers not found!")
 
             for ( teacher of teachers) {
                 teacher.subjects_taught = teacher.subjects_taught.split(",")   
@@ -37,14 +37,13 @@ module.exports = {
         Teacher.create(req.body, function (teacher) {
             return res.redirect(`/teachers/${ teacher.id }`)
         })
-
     },
 
     //showUser
     show(req, res) {
 
         Teacher.find(req.params.id, function (teacher) {
-            if (!teacher) return res.send("Professor não encontrado!")
+            if (!teacher) return res.send("Teacher not found!")
 
                 teacher.birth_date = age(teacher.birth_date)
                 teacher.education_level = graduation(teacher.education_level)
@@ -60,8 +59,14 @@ module.exports = {
     //editPage
     edit(req, res) {
 
-        return 
-        
+        Teacher.find(req.params.id, function (teacher) {
+            if (!teacher) return res.send("Teacher not found!")
+
+            teacher.birth_date = date(teacher.birth_date).iso
+
+            return res.render("teachers/edit", { teacher })
+        })
+
     },
 
 
@@ -74,13 +79,18 @@ module.exports = {
             if (req.body[key] == "") return res.send('Please fill all fields')
         }
         
-        return
+        Teacher.update(req.body, function () {
+            
+            return res.redirect(`/teachers/${ req.body.id }`)
+        })
     },
 
     //deleteUser
     delete(req, res) {
 
-        return 
-        
+        Teacher.delete(req.body.id, function () {
+            
+            return res.redirect("/teachers")
+        })
     },
 }

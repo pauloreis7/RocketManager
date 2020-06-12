@@ -41,13 +41,13 @@
         <div>
         
             <span>
-                <input type="radio" name="class_type" id="pres" value="presential" {% if teacher.type =="presential"  %}
+                <input type="radio" name="class_type" id="pres" value="presential" {% if teacher.class_type =="presential"  %}
                 checked
                 {% endif %} /> <label for="pres"> Presential </label>
             </span>
 
             <span>
-                <input type="radio" name="class_type" id="dist" value="distance"  {% if teacher.type =="distance" %}
+                <input type="radio" name="class_type" id="dist" value="distance"  {% if teacher.class_type =="distance" %}
                 checked
                 {% endif %} /> <label for="dist"> To distance </label>
             </span>
@@ -62,10 +62,10 @@
     
         <select name="education_level">
             
-            <option value="highSchool" {% if teacher.level == "highSchool" %} selected {% endif %}>High school</option>
-            <option value="university"{% if teacher.level == "university" %} selected {% endif %}>University</option>
-            <option value="master"{% if teacher.level == "master" %} selected {% endif %}>Master</option>
-            <option value="doctor"{% if teacher.level == "doctor" %} selected {% endif %}>Doctorate degree</option>
+            <option value="highSchool" {% if teacher.education_level == "highSchool" %} selected {% endif %}>High school</option>
+            <option value="university"{% if teacher.education_level == "university" %} selected {% endif %}>University</option>
+            <option value="master"{% if teacher.education_level == "master" %} selected {% endif %}>Master</option>
+            <option value="doctor"{% if teacher.education_level == "doctor" %} selected {% endif %}>Doctorate degree</option>
             
         </select>
     
@@ -77,7 +77,7 @@
 
         <div>
         
-            <input type="text" name="subjects_taught" placeholder="separe in comma" value="{{ teacher.services }}" />
+            <input type="text" name="subjects_taught" placeholder="separe in comma" value="{{ teacher.subjects_taught }}" />
         
         </div>     
 
