@@ -86,11 +86,33 @@
 
     <div class="item">
     
-        <div>Workload (weekly)</div>
+        <div id="special_mark">Workload (weekly)</div>
 
         <div class="hour">
         
             <input type="number" name="workload" placeholder="Hs" min="0" value="{{ student.workload }}" />
+        
+        </div>
+    
+    </div>
+
+    <div class="item">
+    
+        <div>Student Instructor</div>
+
+        <div>
+        
+            <select name="teacher">
+
+                {% for teacher in teachers %}
+
+                    <option value="{{ teacher.id }}" {% if student.teacher_id == teacher.id %} selected {% endif %}>
+                        {{ teacher.name }}
+                    </option>
+                
+                {% endfor %}
+
+            </select>
         
         </div>
     

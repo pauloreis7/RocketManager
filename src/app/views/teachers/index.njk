@@ -12,8 +12,15 @@
 
             <div class="table_header">
                 
-                <a href="/teachers/create">Novo</a>
-                <h3>Teachers</h3>
+                <a class="button" href="/teachers/create">Novo</a>
+                
+                <form action="/teachers" method="get">
+                
+                    <input name="search" value="{{ search }}" placeholder="Search name or subject" />
+                
+                    <button type="submit">Pequisar</button>
+                
+                </form>
 
             </div>
 
@@ -38,12 +45,18 @@
                 
                         <tr>
                         
-                            <td><span style="background-image: url({{ teacher.avatar_url }})"></span>{{ teacher.name }}</td>
-
                             <td>
-                            {% for subject_taught in teacher.subjects_taught %}
-                               <span>{{ subject_taught }}</span> 
-                            {% endfor %}
+                            
+                                <span style="background-image: url({{ teacher.avatar_url }})"></span>{{ teacher.name }}
+                                
+                                <span class="total_students" title="total students">{{teacher.total_students}}</span>
+                            
+                            </td>
+
+                            <td class="services">
+                                {% for subject_taught in teacher.subjects_taught %}
+                                <span>{{ subject_taught }}</span> 
+                                {% endfor %}
                             </td>
                             
                             <td><a href="/teachers/{{ teacher.id }}">View</a></td>

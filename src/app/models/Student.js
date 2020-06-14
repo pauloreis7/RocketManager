@@ -22,8 +22,9 @@ module.exports = {
                 birth,
                 level,
                 workload,
-                created_at
-            ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+                created_at,
+                teacher_id 
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
             RETURNING id
         `
 
@@ -34,7 +35,8 @@ module.exports = {
             date(data.birth).iso,
             data.level,
             data.workload,
-            date(Date.now()).iso
+            date(Date.now()).iso,
+            data.teacher
         ]
 
         db.query(query, values, function (err, results) {
@@ -46,10 +48,24 @@ module.exports = {
 
     find(id, callback) {
 
-        db.query(`SELECT * FROM students WHERE id = ${ id }`, function (err, results) {
+        db.query(`SELECT students.*, teachers.name AS teacher_name
+        FROM students 
+        LEFT JOIN teachers ON (students.teacher_id = teachers.id)
+        WHERE students.id = ${ id }
+        `
+        , function (err, results) {
             if (err) throw `Error to find student! ${ err }`
             
             callback(results.rows[0])
+        })
+    },
+
+    selectTeachers(callback) {
+
+        db.query(`SELECT name, id FROM teachers`, function (err, results) {
+            if (err) throw `Error to search teachers! ${ err }`
+            
+            callback(results.rows)
         })
     },
 
@@ -62,7 +78,8 @@ module.exports = {
             email = ($3),
             birth = ($4),
             level = ($5),
-            workload = ($6)
+            workload = ($6),
+            teacher_id = ($7)
             WHERE id = ${ data.id }
         `
 
@@ -73,6 +90,7 @@ module.exports = {
             data.birth,
             data.level,
             data.workload,
+            data.teacher
         ]
 
         db.query(query, values, function (err, results) {

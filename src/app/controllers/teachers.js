@@ -7,15 +7,31 @@ module.exports = {
     //index
     index(req, res) {
 
-        Teacher.all( function (teachers) {
-            if (!teachers) return res.send("Teachers not found!")
+        const { search } = req.query
 
-            for ( teacher of teachers) {
-                teacher.subjects_taught = teacher.subjects_taught.split(",")   
-            }
+        if (search) {
 
-            return res.render("teachers/index", { teachers })
-        })
+            Teacher.findBy(search, function (teachers) {
+                for ( teacher of teachers) {
+                    teacher.subjects_taught = teacher.subjects_taught.split(",")   
+                }
+
+                return res.render("teachers/index", { teachers, search })
+            })
+
+         } else {
+
+            Teacher.all( function (teachers) {
+                if (!teachers) return res.send("Teachers not found!")
+
+                for ( teacher of teachers) {
+                    teacher.subjects_taught = teacher.subjects_taught.split(",")   
+                }
+
+                return res.render("teachers/index", { teachers })
+            })
+        }
+
 
     },
 

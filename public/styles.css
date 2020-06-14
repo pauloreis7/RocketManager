@@ -133,10 +133,6 @@ header img {
     border: none;
 }
 
-.details .item:nth-child(7) {
-    padding: 0;
-}
-
 .details h3 {
     color: var(--main-color);
     font-weight: bold;
@@ -163,12 +159,7 @@ header img {
     line-height: 28px;
 }
 
-#since {
-    color: rgb(139, 139, 139);
-    font-weight: bold;
-}
-
-.details .item:nth-child(7) div:nth-child(2) {
+#special_mark ~ div {
     background-color: var(--third-color);
     color: white;
     font-weight: bold;
@@ -206,7 +197,7 @@ input,select {
     color: rgb(114, 114, 114);
     font-weight: bold;
     font-size: 18px;
-    outline: none;
+    outline-color: #00000000;
     border-radius: 6px 6px 0 0;
 }
 
@@ -299,18 +290,6 @@ a.button {
     text-transform: uppercase;
 }
 
-.table_header {
-    margin-bottom: 24px;
-    align-items: center;
-    position: relative;
-}
-
-.table_header a {
-    position: absolute;
-    left: 0;
-    top: 1px;
-}
-
 .table_header h3 {
     font-size: 16px;
     border-bottom: 2px solid var(--main-color);
@@ -337,6 +316,8 @@ tbody tr td:first-child {
     word-wrap: break-word;
     max-width: 270px;
 
+    position: relative;
+
     font-weight: bold;
     color: black;
 
@@ -354,21 +335,39 @@ tbody tr td:first-child span {
     box-shadow: 3px 1px 6px -4px;
 }
 
-tbody tr td:nth-child(2), .only {
-    text-align: initial;
-    width: 150px;
+tbody tr td:first-child .total_students {
+    width: 10px;
+    height: 10px;
+
+    padding: 2px;
+
+    font-size: 10px;
+    background-color: var(--secondary-color);
+    border: none;
+    cursor: default;
+    color: white;
+
+    text-align: center;
+    
+    position: absolute;
+    bottom: 17px;
+    left: 36px;
+}
+
+tbody tr td:nth-child(2), .level {
     text-transform: none;
-
+    word-break: break-word;
 }
 
-.only {
-    word-wrap: break-word;
+.services {
+    text-align: left;
 }
 
-tbody tr td:nth-child(2) span {
+.info_table tbody tr td:nth-child(2) span {
     padding: 4px 8px;
     margin-bottom: 16px;
     line-height: 26px;
+    text-align: left;
 }
 
 tr th:last-child {
@@ -376,10 +375,12 @@ tr th:last-child {
 } 
 
 td, th {
-    padding: 8px 16px 4px;
+    padding: 8px 8px 4px;
     border-bottom: 1px solid var(--secondary-color);
     color: rgba(78, 78, 78, 0.8);
+
     min-height: 77px;
+    text-align: center;
 }
 
 tbody tr:last-child td {
@@ -396,6 +397,64 @@ tbody tr td:last-child a, .table_header a {
     
     padding: 8px 16px;
 }
+
+
+/* FILTER */
+
+.table_header {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    text-align: center;
+    align-items: center;
+
+    margin-bottom: 32px;
+}
+
+.info_table .table_header a {
+    max-width: 80px;
+
+    font-size: 14px;
+}
+
+.info_table .table_header .button, .info_table .table_header button {
+    margin: 0;
+    padding: 8px 16px;
+}
+
+.info_table .table_header form {
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    gap: 8px;
+
+    align-items: center;
+    text-align: center;
+}
+
+.info_table .table_header form input {
+    width: 100%;
+
+    border-radius: 4px;
+    border: 1px solid rgb(202, 202, 202);
+    outline-color: var(--main-color);
+    outline-width: 1px;
+
+    padding: 4px 8px;
+    box-sizing: border-box;
+}
+
+.info_table .table_header form input:hover {
+    border: 1px solid var(--main-color);
+    opacity: .8;
+
+    transition: 250ms;
+}
+
+.info_table .table_header form input::placeholder {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+
 
 /* NOT FOUND */
 

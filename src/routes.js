@@ -11,6 +11,8 @@ routes.get("/", function (req, res) {
 
 routes.get("/teachers", teachers.index)
 
+// routes.get("/teachersFilter/:search", teachers.index)
+
 routes.get("/teachers/create", teachers.create)
 
 routes.post("/teachers", teachers.post)

@@ -12,8 +12,7 @@
 
             <div class="table_header">
                 
-                <a href="/students/create">Novo</a>
-                <h3>Students</h3>
+                <a class="button" href="/students/create">Novo</a>
 
             </div>
 
@@ -40,7 +39,7 @@
                         
                             <td><span style="background-image: url({{ student.avatar_url }})"></span>{{ student.name }}</td>
                             <td>{{ student.email }}</td>
-                            <td class="only">{{ student.level }}</td>
+                            <td class="level">{{ student.level }}</td>
                             <td><a href="/students/{{ student.id }}">View</a></td>
                         
                         </tr>

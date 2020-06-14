@@ -24,7 +24,12 @@ module.exports = {
     //createPage
     create(req, res) {
 
-        return res.render("students/create")
+        Student.selectTeachers(function (teachers) {
+            if (!teachers) return res.send("Teachers not found!")
+            
+            return res.render("students/create", { teachers })
+        })
+        
 
     },
 
@@ -51,7 +56,7 @@ module.exports = {
             student.birth = date(student.birth).birthDate
             student.level = grade(student.level)
             student.created_at = date(student.created_at).format
-            
+
             return res.render("students/show", { student })
         })
 
@@ -65,7 +70,12 @@ module.exports = {
 
             student.birth = date(student.birth).iso
 
-            return res.render("students/edit", { student })
+            Student.selectTeachers(function (teachers) {
+                if (!teachers) return res.send("Teachers not found!")
+                
+                return res.render("students/edit", { student, teachers })
+            })
+
         })
 
     },
