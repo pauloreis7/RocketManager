@@ -10,9 +10,17 @@
 
         <article class="details table_content">
 
-            <div class="table_header">
+             <div class="table_header">
                 
-                <a class="button" href="/students/create">Novo</a>
+                <a class="button" href="/students/create">New</a>
+                
+                <form action="/students" method="get">
+                
+                    <input name="search" value="{{ search }}" placeholder="Search name or e-mail" />
+                
+                    <button type="submit">Search</button>
+                
+                </form>
 
             </div>
 
@@ -49,6 +57,8 @@
                 </tbody>
             
             </table>
+
+            <div class="pagination" data-page={{ paginationData.page }} data-total={{ paginationData.total }} data-search={{ search }}></div>
             
         </article>
     

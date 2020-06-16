@@ -3,15 +3,6 @@ const { date } = require('../../lib/utils')
 
 module.exports = {
 
-    all(callback) {
-
-        db.query(`SELECT * FROM students ORDER BY name DESC`, function (err, result) {
-            if (err) throw `Error finding students! ${ err }`
-            
-            callback(result.rows)
-        })
-    },
-
     create(data, callback) {
 
         const query = `
@@ -106,6 +97,38 @@ module.exports = {
             if (err) throw `Error to delete student! ${ err }`
 
             callback()
+        })
+    },
+
+    paginate(params) {
+
+        let { search, limit, offset, callback } = params
+
+        let query = ""
+            querySearch = ""
+            queryTotal = `(SELECT count(*) FROM students) AS total`
+
+        if (search) {
+            
+            querySearch = `
+            WHERE students.name ILIKE '%${ search }%'
+            OR students.email ILIKE '%${ search }%'
+            `
+
+            queryTotal = `(SELECT count(*) FROM students
+            ${ querySearch }
+            )  AS total`
+        }
+
+        query = `SELECT *, ${ queryTotal } FROM students
+        ${ querySearch }
+        ORDER BY id ASC
+        LIMIT $1 OFFSET $2`
+
+        db.query(query, [limit, offset], function (err, results) {
+            if (err) throw `Error finding students! ${ err }`
+            
+            callback(results.rows)
         })
     }
 }

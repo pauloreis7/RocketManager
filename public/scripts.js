@@ -8,6 +8,8 @@ for ( item of menuItens) {
 }
 
 
+//Pagination
+
 function createPagination(totalPages, selectedPage) {
     
     let pages = []
@@ -39,20 +41,41 @@ function createPagination(totalPages, selectedPage) {
     return pages
 }
 
-
-
 const pagination = document.querySelector(".pagination")
 const total = +pagination.dataset.total
-const page = +pagination.dataset.page
+const pageSelected = +pagination.dataset.page
 const search = pagination.dataset.search
 
-const pages = createPagination(12, 5)
+const pages = createPagination(total, pageSelected)
 let elements = ""
 
 for ( let page of pages) {
-    elements += `<a href="?page=${ page }">${ page }</a>`
+    
+    if (String(page).includes("...") ) {
+        
+        elements +=`<span>${ page }</span>`
+    } else {
+
+        if (search) {
+
+            if (page == pageSelected ) {
+                
+                elements += `<a class="active" href="?page=${ page }&search=${ search }">${ page }</a>`
+            } else {
+
+                elements += `<a href="?page=${ page }&search=${ search }">${ page }</a>`
+            }
+        } else {
+
+            if (page == pageSelected ) {
+                
+                elements += `<a class="active" href="?page=${ page }">${ page }</a>`
+            } else {
+                
+                elements += `<a href="?page=${ page }">${ page }</a>`
+            }
+        }
+    }
 }
 
 pagination.innerHTML = elements
-
- console.log(elements)

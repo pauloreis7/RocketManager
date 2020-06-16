@@ -10,13 +10,12 @@ module.exports = {
         let { search, page, limit } = req.query
 
         page = page || 1
-        limit = limit || 4
+        limit = limit || 3
 
         let offset = limit * (page - 1)
 
         const params = {
             search,
-            page,
             limit,
             offset,
             callback (teachers) {
@@ -86,7 +85,6 @@ module.exports = {
         })
 
     },
-
 
     //editUser
     put(req, res) {

@@ -3,21 +3,6 @@ const { date } = require('../../lib/utils')
 
 module.exports = {
     
-    all(callback) {
-
-        db.query(`SELECT teachers.* , count(students) AS total_students 
-        FROM teachers
-        LEFT JOIN students ON (students.teacher_id = teachers.id)
-        GROUP BY teachers.id
-        ORDER BY total_students DESC`
-        
-        , function (err, results) {
-        if (err) throw `Error finding teachers! ${ err }`
-
-            callback(results.rows)
-        })
-    },
-
     create(data, callback) {
         
         const query = `
@@ -118,7 +103,7 @@ module.exports = {
 
     paginate(params) {
 
-        let { search, limit, offset, callback } = params
+        let { search, limit, offset, callback } = params 
 
         let query = "",
             querySearch = "",
@@ -147,7 +132,7 @@ module.exports = {
 
         db.query(query, [ limit, offset ], function (err, results) {
             if (err) throw `Error finding teachers! ${ err }`
-            
+
             callback(results.rows)
         })
     }

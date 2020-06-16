@@ -290,6 +290,13 @@ a.button {
     text-transform: uppercase;
 }
 
+.table_content {
+    display: grid;
+    grid-template: 64px 1fr 16px / 1fr;
+
+    box-sizing: border-box;
+}
+
 .table_header h3 {
     font-size: 16px;
     border-bottom: 2px solid var(--main-color);
@@ -407,6 +414,8 @@ tbody tr td:last-child a, .table_header a {
     text-align: center;
     align-items: center;
 
+    align-self: start;
+
     margin-bottom: 32px;
 }
 
@@ -454,12 +463,50 @@ tbody tr td:last-child a, .table_header a {
     font-weight: normal;
 }
 
+/* PAGINATION */
 
+.info_table .pagination {
+    align-self: end;
+    justify-self: center;
+}
+
+.pagination a, .pagination span {
+    color: var(--main-color);
+    text-decoration: none;
+    font-weight: bold;
+
+    margin-right: 16px;
+}
+
+.pagination a:hover {
+    filter: brightness(50%);
+    border-bottom: 2px solid var(--main-color);
+    font-size: 18px;
+
+    transition: 250ms;
+}
+
+.pagination .active {
+    font-size: 19px;
+    text-decoration: none;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 4px;
+
+    padding: 3px 7px;
+}
+
+.pagination .active:hover {
+    filter: brightness(108%);
+    font-size: 19px;
+    border: none;
+
+    transition: 250ms;
+}
 
 /* NOT FOUND */
 
 .err {
-    
     max-width: 550px;
     max-height: 400px;
 

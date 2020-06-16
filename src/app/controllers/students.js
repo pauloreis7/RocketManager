@@ -8,17 +8,34 @@ module.exports = {
     //index
     index(req, res) {
 
-        Student.all(function (students) {
-            if (!students) return res.send("Students not found!")
+        let { search, page, limit } = req.query
 
-            
-            for ( student of students) {              
-                student.level = grade(student.level)
+        page = page || 1
+        limit = limit || 3
+
+        let offset = limit * (page- 1)
+
+        const params = {
+            search,
+            limit,
+            offset,
+            callback(students) {
+
+                for ( student of students) {
+                    student.level = grade(student.level)
+                }
+                
+                const paginationData = {
+                    total: Math.ceil(students[0].total / limit),
+                    page
+                }
+
+                return res.render ("students/index", { students, paginationData, search  })
             }
+        }
 
-            return res.render("students/index", { students })
-            
-        })
+        Student.paginate(params)
+       
     },
 
     //createPage
@@ -95,7 +112,6 @@ module.exports = {
             
             return res.redirect(`/students/${ req.body.id }`)
         })
-
     },
 
     //deleteUser
