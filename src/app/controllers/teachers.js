@@ -7,32 +7,34 @@ module.exports = {
     //index
     index(req, res) {
 
-        const { search } = req.query
+        let { search, page, limit } = req.query
 
-        if (search) {
+        page = page || 1
+        limit = limit || 4
 
-            Teacher.findBy(search, function (teachers) {
-                for ( teacher of teachers) {
-                    teacher.subjects_taught = teacher.subjects_taught.split(",")   
-                }
+        let offset = limit * (page - 1)
 
-                return res.render("teachers/index", { teachers, search })
-            })
-
-         } else {
-
-            Teacher.all( function (teachers) {
-                if (!teachers) return res.send("Teachers not found!")
+        const params = {
+            search,
+            page,
+            limit,
+            offset,
+            callback (teachers) {
 
                 for ( teacher of teachers) {
-                    teacher.subjects_taught = teacher.subjects_taught.split(",")   
+                    teacher.subjects_taught = teacher.subjects_taught.split(",")
                 }
 
-                return res.render("teachers/index", { teachers })
-            })
+                const paginationData = {
+                    total: Math.ceil(teachers[0].total / limit),
+                    page
+                }
+
+                return res.render("teachers/index", { teachers, paginationData, search })
+            }
         }
 
-
+        Teacher.paginate(params)
     },
 
     //createPage

@@ -114,5 +114,41 @@ module.exports = {
             
             callback()
         })
+    },
+
+    paginate(params) {
+
+        let { search, limit, offset, callback } = params
+
+        let query = "",
+            querySearch = "",
+            queryTotal = `(SELECT count(*) FROM teachers) AS total`
+
+        if (search) {
+
+            querySearch = `
+            WHERE teachers.name ILIKE '%${ search }%'
+            OR teachers.subjects_taught ILIKE '%${ search }%'
+            `
+
+            queryTotal = `
+            (SELECT count(*) FROM teachers
+                ${ querySearch }
+            ) AS total`
+        }
+
+        query = `SELECT teachers.*, ${ queryTotal }, count(students) AS total_students
+        FROM teachers
+        LEFT JOIN students ON (students.teacher_id = teachers.id)
+        ${ querySearch }
+        GROUP BY teachers.id
+        ORDER BY total_students DESC
+        LIMIT $1 OFFSET $2`
+
+        db.query(query, [ limit, offset ], function (err, results) {
+            if (err) throw `Error finding teachers! ${ err }`
+            
+            callback(results.rows)
+        })
     }
 }
